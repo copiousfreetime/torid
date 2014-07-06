@@ -6,5 +6,6 @@ module Torid
 end
 
 require 'fnv'
-require 'torid/generator'
 require 'torid/clock'
+require 'torid/uuid'
+require 'torid/generator'
