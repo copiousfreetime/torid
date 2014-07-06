@@ -1,0 +1,11 @@
+*~
+*.swp
+*.swo
+*.log
+coverage
+doc
+log
+pkg
+tmp
+Gemfile*
+*.gemspec
