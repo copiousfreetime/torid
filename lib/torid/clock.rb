@@ -1,24 +1,47 @@
 require 'thread'
 module Torid
+  # Internal: A source for non-duplicate microsecond timestamps.
   #
-  # Clock is a time source that will never return the same value twice.
+  # Clock generates microsecond UNIX timestamps and guarantees that once a Clock
+  # instance is created, `Clock#tick` will never return the same value twice for
+  # that instance.
+  #
+  # This is effectively a reimplementation of
+  # https://github.com/jamesgolick/lexical_uuid/blob/master/lib/increasing_microsecond_clock.rb
+  # combined with
+  # https://github.com/jamesgolick/lexical_uuid/blob/master/lib/time_ext.rb
   #
   class Clock
 
-    # Return the number of microseconds since UNIX Epoch
+    # Internal: Return the current microsecond UNIX timstamp
+    #
+    # Example:
+    #
+    #   Clock.stamp => 1404774462369341
+    #
+    # Returns the Integer value of the current microsecond UNIX timestamp
     def self.stamp
       now = Time.now
       (now.to_f * 1_000_000).floor
     end
 
+    # Internal: Create a new Clock
+    #
+    # prev_stamp - An initial value for the previous timestamp (default:
+    #              Clock.stamp)
+    # mutex      - The synchronizing object to use
     def initialize( prev_stamp = Clock.stamp, mutex = Mutex.new )
       @prev_stamp = prev_stamp
       @mutex      = mutex
     end
 
-    # Return the next tick of the clock, which will be a Clock.stamp value.
+    # Internal: Return the next tick of the clock.
     #
-    # This method will never return the same value twice.
+    # Return the next tick of the clock, which will be a Clock.stamp value. This
+    # method will continue to return ever increasing values from when it was
+    # created.
+    #
+    # Returns the Integer value of a microsecond UNIX timestamp
     def tick
       @mutex.synchronize do
         new_stamp   = Clock.stamp
@@ -30,9 +53,11 @@ module Torid
       end
     end
 
-    # Internal: The default instance to use for gathering ticks
+    # Internal: The default instance to use for generating ticks
     @instance = Clock.new
 
+    # Internal: Return the next `#tick` of the default Clock.
+    #
     def self.tick
       @instance.tick
     end
