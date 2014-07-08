@@ -28,6 +28,14 @@ The IDs that Torid generates are 128bit IDs made up of 2, 64bit parts.
 
 ## EXAMPLES
 
+```ruby
+require 'torid'
+
+uuid = Torid.uuid
+uuid.to_s         # => "0004fda4-318e-f380-5a45-5321cd065b02"
+uuid.bytes        # => "\x00\x04\xFD\xA41\x8E\xF3\x80ZES!\xCD\x06[\x02"
+```
+
 ## CREDITS / RESOURCES
 
 The vast majority of the credit and research stems from:
