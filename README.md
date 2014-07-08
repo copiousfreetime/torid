@@ -28,12 +28,26 @@ The IDs that Torid generates are 128bit IDs made up of 2, 64bit parts.
 
 ## EXAMPLES
 
+#### Using the defaults
+
 ```ruby
 require 'torid'
 
 uuid = Torid.uuid
 uuid.to_s         # => "0004fda4-318e-f380-5a45-5321cd065b02"
 uuid.bytes        # => "\x00\x04\xFD\xA41\x8E\xF3\x80ZES!\xCD\x06[\x02"
+```
+
+#### Using your own instance of a Generator
+
+```ruby
+require 'torid'
+
+generator = Torid::Generator.new
+uuid      = generator.next
+
+uuid.to_s        # => "0004fda4-3f42-3d01-4731-5a4aa8ddd6c3"
+uuid.bytes       # => "\x00\x04\xFD\xA4?B=\x01G1ZJ\xA8\xDD\xD6\xC3"
 ```
 
 ## CREDITS / RESOURCES
