@@ -48,5 +48,11 @@ module Torid
       end
     end
 
+    def test_creates_a_time_from_uuid
+      time = Time.at( @timestamp / 1_000_000.0 )
+      uuid = ::Torid::UUID.from( @guid )
+      assert_equal( time, uuid.time )
+    end
+
   end
 end

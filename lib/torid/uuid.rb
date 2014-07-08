@@ -35,9 +35,16 @@ module Torid
       @timestamp = timestamp
       @node_id   = node_id
       @bytes     = nil
+      @time      = nil
     end
 
-    # Borrowed from lexical_uuid
+    # Public: Return the Time value the internal microsecond timestamp
+    # represents.
+    #
+    # Returns a Time instance
+    def time
+      @time ||= Time.at( timestamp / 1_000_000.0 )
+    end
     def bytes
       @bytes ||= [ @timestamp >> 32,
                    @timestamp & 0xFFFF_FFFF,
