@@ -5,7 +5,14 @@ Manifest.txt
 README.md
 Rakefile
 lib/torid.rb
-spec/spec_helper.rb
-spec/version_spec.rb
+lib/torid/clock.rb
+lib/torid/generator.rb
+lib/torid/uuid.rb
 tasks/default.rake
 tasks/this.rb
+test/test_clock.rb
+test/test_generator.rb
+test/test_helper.rb
+test/test_torid.rb
+test/test_uuid.rb
+test/test_version.rb
