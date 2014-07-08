@@ -58,7 +58,7 @@ The vast majority of the credit and research stems from:
 * This let me to [Boundary's Flake](http://boundary.com/blog/2012/01/12/flake-a-decentralized-k-ordered-unique-id-generator-in-erlang/)
 * [James Golick's](https://github.com/jamesgolick) [lexical_uuid](https://github.com/jamesgolick/lexical_uuid), which if I had found a day earlier, I might be using instead of creating this.
 
-You could consider Torid to be a reimplementation of lexical_uuid. It definately steals some code from it and [simple_uuid](https://github.com/cassandra-rb/simple_uuid)
+You could consider Torid to be a reimplementation of [lexical_uuid](https://github.com/jamesgolick/lexical_uuid). It definately steals some code from it and [simple_uuid](https://github.com/cassandra-rb/simple_uuid)
 
 Blog posts around ID generation:
 
