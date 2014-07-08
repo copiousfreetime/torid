@@ -44,7 +44,7 @@ module Torid
 
     def test_create_from_raises_error
       assert_raises( ArgumentError ) do
-        ::Torid::UUID.from( "abcdef" ) 
+        ::Torid::UUID.from( "abcdef" )
       end
     end
 
