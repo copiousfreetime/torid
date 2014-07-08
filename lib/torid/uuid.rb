@@ -11,7 +11,7 @@ module Torid
   # a 'node_id', those data fields are also able to be returned as a Time
   # instance or an Integer respectively.
   #
-  # Example:
+  # Examples
   #
   #   uuid = Torid.uuid
   #   uuid.to_s  # => "0004fda3-8c73-5e0f-bae4-e9c86e3684a5"
@@ -93,6 +93,10 @@ module Torid
     # Public: Return the Time value the internal microsecond timestamp
     # represents.
     #
+    # Examples
+    #
+    #   uuid.time # => Time
+    #
     # Returns a Time instance
     def time
       @time ||= Time.at( timestamp / 1_000_000.0 )
@@ -102,6 +106,10 @@ module Torid
     #
     # Copied from lexical_uuid
     #
+    # Examples
+    #
+    #   uuid.bytes # => "\x00\x04\xFD\xA3\x8Cs^\x0F\xBA\xE4\xE9\xC8n6\x84\xA5"
+    #
     # Returns a binary String
     def bytes
       @bytes ||= [ @timestamp >> 32,
@@ -110,16 +118,16 @@ module Torid
                    @node_id   & 0xFFFF_FFFF ].pack("NNNN")
     end
 
-    # Public: Returns the hexadecimal UUID string representation. This is the
+    # Public: Return the hexadecimal UUID string representation. This is the
     # standard 8-4-4-4-12 UUID string representation.
     #
     # Copied from simple_uuid via lexical_uuid.
     #
-    # Example:
+    # Examples
     #
     #   uuid.to_s  # => "0004fda3-8c73-5e0f-bae4-e9c86e3684a5"
     #
-    # Returns a 36 Character String
+    # Returns a String
     def to_s
       elements     = bytes.unpack("NnnCCa6")
       node         = elements[-1].unpack('C*')

@@ -35,7 +35,7 @@ module Torid
       @node_id = node_id
     end
 
-    # Return the next UUID from this generator
+    # Public: Return the next UUID from this generator
     #
     # Returns Torid::UUID
     def next
@@ -65,7 +65,7 @@ module Torid
     # Internal: The default generator used by the system.
     @instance = ::Torid::Generator.new( Torid::Clock, Generator.create_node_id )
 
-    # Return the node id of the default Generator instance
+    # Public: Return the node id of the default Generator instance
     #
     # Returns a 64 bit Integer
     def self.node_id

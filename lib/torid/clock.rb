@@ -19,7 +19,7 @@ module Torid
     #
     #   Clock.stamp => 1404774462369341
     #
-    # Returns the Integer value of the current microsecond UNIX timestamp
+    # Returns an Integer
     def self.stamp
       now = Time.now
       (now.to_f * 1_000_000).floor
@@ -41,7 +41,7 @@ module Torid
     # method will continue to return ever increasing values from when it was
     # created.
     #
-    # Returns the Integer value of a microsecond UNIX timestamp
+    # Returns an Integer.
     def tick
       @mutex.synchronize do
         new_stamp   = Clock.stamp
@@ -61,6 +61,5 @@ module Torid
     def self.tick
       @instance.tick
     end
-
   end
 end
