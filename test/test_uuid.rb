@@ -27,17 +27,17 @@ module Torid
       assert_equal( @node_id , uuid.node_id )
     end
 
-    def test_round_trips_guid_string
+    def test_round_trips_uuid_string
       uuid = ::Torid::UUID.from( @guid )
       assert_equal( uuid.to_s, uuid.to_s )
     end
 
-    def test_extracts_timestamp_from_guid
+    def test_extracts_timestamp_from_uuid
       uuid = ::Torid::UUID.from( @guid )
       assert_equal( @timestamp, uuid.timestamp )
     end
 
-    def test_extracts_node_id_from_guid
+    def test_extracts_node_id_from_uuid
       uuid = ::Torid::UUID.from( @guid )
       assert_equal( @node_id , uuid.node_id )
     end
