@@ -1,11 +1,21 @@
-# Torid is a Time Ordered ID system. It is heavily inspired by the criteria
-# listed for Boundary's Flake ID generation system and the lexical_uuid gem from
-# James Golick.
+# Torid - Temporally Ordered IDs. Generate universally unique identifiers (UUID)
+# that sort lexically in time order.
 module Torid
   VERSION = "1.0.0"
-end
 
-require 'fnv'
+  # Public: return the next Torid::UUID from the default Generator
+  #
+  # This is just a shortcut to Torid::Generator.next
+  #
+  # Example:
+  #
+  #   Torid.uuid # => Torid::UUID
+  #
+  # Returns a Torid::UUID
+  def self.uuid
+    Torid::Generator.next
+  end
+end
 require 'torid/clock'
 require 'torid/uuid'
 require 'torid/generator'
