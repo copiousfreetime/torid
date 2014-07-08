@@ -1,6 +1,7 @@
 # Torid - Temporally Ordered IDs. Generate universally unique identifiers (UUID)
 # that sort lexically in time order.
 module Torid
+  # Public: The Version of the Torid library as a String
   VERSION = "1.0.0"
 
   # Public: return the next Torid::UUID from the default Generator
