@@ -196,7 +196,7 @@ class ThisProject
     description_section.first
   end
 
-  # Internal: Return the full description text from the READEM
+  # Internal: Return the full description text from the README
   def description
     description_section.join(" ").tr("\n", ' ').gsub(/[{}]/,'').gsub(/\[[^\]]+\]/,'') # strip rdoc
   end
