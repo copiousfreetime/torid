@@ -4,23 +4,23 @@ require 'torid/generator'
 module Torid
   class GeneratorTest < ::Minitest::Test
 
-    def test_set_clock_on_initialize
+    def test_can_set_clock_on_initialize
       g = Torid::Generator.new( 'clock' )
       assert_equal( 'clock', g.clock )
     end
 
-    def test_set_node_id_on_initialize
+    def test_can_set_node_id_on_initialize
       g = Torid::Generator.new( 'clock', 'node-id' )
       assert_equal( 'clock', g.clock )
       assert_equal( 'node-id', g.node_id)
     end
 
-    def test_default_clock_set_on_initializes
+    def test_default_clock_is_set_on_initializes
       g = Torid::Generator.new
       assert_equal( Torid::Clock, g.clock )
     end
 
-    def test_default_node_id_set_on_initialize
+    def test_default_node_id_is_set_on_initialize
       g = Torid::Generator.new
       assert( g.node_id > 0 )
     end
