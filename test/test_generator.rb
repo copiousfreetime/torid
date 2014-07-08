@@ -25,16 +25,16 @@ module Torid
       assert( g.node_id > 0 )
     end
 
-    def test_clocks_tick_is_called_on_next_uuid
+    def test_clocks_tick_is_called_on_next
       clock = ::Minitest::Mock.new
       clock.expect( :tick, 42 )
       g = Torid::Generator.new( clock )
-      g.next_uuid
+      g.next
       clock.verify
     end
 
     def test_default_instance_creates_uuid
-      uuid = Torid::Generator.next_uuid
+      uuid = Torid::Generator.next
       assert_instance_of( Torid::UUID, uuid )
     end
   end

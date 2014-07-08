@@ -26,7 +26,7 @@ module Torid
     # Return the next UUID from this generator
     #
     # Returns Torid::UUID
-    def next_uuid
+    def next
       Torid::UUID.new( @clock.tick, @node_id )
     end
 
@@ -49,13 +49,11 @@ module Torid
       @instance.node_id
     end
 
-    # Return the next UUID from the default Generator
+    # Public: Return the next UUID from the default Generator
     #
-    # Returns Torid::UUID
-    def self.next_uuid
-      @instance.next_uuid
+    # Returns a Torid::UUID
+    def self.next
+      @instance.next
     end
-
-
   end
 end
