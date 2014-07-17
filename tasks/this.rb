@@ -25,7 +25,11 @@ class ThisProject
   #
   # Yields self
   def initialize(&block)
-    @exclude_from_manifest = %r/\.(git|DS_Store)|^(doc|coverage|pkg|tmp|Gemfile(\.lock)?)|^[^\/]+\.gemspec|\.(swp|jar|bundle|so|rvmrc)$|~$/
+    @exclude_from_manifest = Regexp.union(/\.(git|DS_Store)/,
+                                          /^(doc|coverage|pkg|tmp|Gemfile(\.lock)?)/,
+                                          /^[^\/]+\.gemspec/,
+                                          /\.(swp|jar|bundle|so|rvmrc|travis.yml)$/,
+                                          /~$/)
     @gemspecs              = Hash.new
     yield self if block_given?
   end
@@ -177,7 +181,7 @@ class ThisProject
     if RUBY_VERSION < "1.9.0"
       platform_gemspec.add_development_dependency( 'rcov', '~> 1.0.0' )
     else
-      platform_gemspec.add_development_dependency( 'simplecov', '~> 0.8.2' )
+      platform_gemspec.add_development_dependency( 'simplecov', '~> 0.9' )
     end
   end
 
