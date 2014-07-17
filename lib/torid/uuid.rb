@@ -41,6 +41,8 @@ module Torid
     # The String can either be a 16 byte binary string, or a 36byte hexadecimal
     # UUID in the 8-4-4-4-12 format.
     #
+    # str - The String from which to create the UUID.
+    #
     # Examples
     #
     #   Torid::UUID.from( "0004fda3-8c73-5e0f-bae4-e9c86e3684a5" )                 # => Torid::UUID
@@ -56,6 +58,8 @@ module Torid
 
     # Internal: Create a new UUID from an existing string in the 8-4-4-4-12 format
     #
+    # str - The String from which to create the UUID.
+    #
     # Copied from lexical_uuid
     #
     # Returns a Torid::UUID
@@ -66,6 +70,8 @@ module Torid
     end
 
     # Internal: Create a new UUID from an existing 16 byte String
+    #
+    # str - The String from which to create the UUID.
     #
     # Copied from lexical_uuid
     #
