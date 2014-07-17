@@ -12,6 +12,23 @@ module Torid
       @guid      = "0004fd7d-f50d-e22e-0000-00000000002a"
     end
 
+    def test_uuid_regex_matches
+      assert_match( Torid::UUID::REGEX, @guid )
+    end
+
+    def test_uuid_match
+      assert( Torid::UUID::REGEX.match( @guid ) )
+    end
+
+    def test_uuid_no_match
+      assert_equal( nil, Torid::UUID::REGEX.match( "foo" ))
+    end
+
+    def test_uuid_match_case_insensitive
+      match_data = Torid::UUID::REGEX.match( @guid.upcase )
+      assert_instance_of( MatchData, match_data )
+    end
+
     def test_round_trips_bytes
       uuid = ::Torid::UUID.from( @bytes)
       assert_equal( @bytes, uuid.bytes )

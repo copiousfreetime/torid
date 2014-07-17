@@ -21,8 +21,23 @@ module Torid
   #   uuid.node_id   # => Integer
   class UUID
 
-    # Public: Create a Torid::UUID from an existing String.
+    # Regular expression that matches the 36 byte 8-4-4-4-12 format
+    REGEX = %r{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}}i
+
+    # Public: Return if the given string matches the UUID regular expression
     #
+    # str - The String to compare to REGEX
+    #
+    # Examples:
+    #
+    #   Torid::UUID.match( "0004fda3-8c73-5e0f-bae4-e9c86e3684a5" ) # => MatchData
+    #
+    # Returns MatchData or nil if there is no match
+    def self.match( str )
+      REGEX.match( str )
+    end
+
+    # Public: Create a Torid::UUID from an existing String.
     # The String can either be a 16 byte binary string, or a 36byte hexadecimal
     # UUID in the 8-4-4-4-12 format.
     #
@@ -34,14 +49,9 @@ module Torid
     # Returns a Torid::UUID
     # Raises ArgumentError if the String is not convertable to a UUID.
     def self.from( str )
-      case str.bytesize
-      when 36
-        from_string( str )
-      when 16
-        from_bytes( str )
-      else
-        raise ArgumentError, "UUID can only be loaded from a 16 byte binary string or a 36 byte formatted UUID string."
-      end
+      return from_bytes( str )  if str.bytesize == 16
+      return from_string( str ) if UUID.match( str )
+      raise ArgumentError, "UUID can only be loaded from a 16 byte binary string or a 36 byte formatted UUID string."
     end
 
     # Internal: Create a new UUID from an existing string in the 8-4-4-4-12 format
