@@ -71,10 +71,38 @@ module Torid
       assert_equal( time, uuid.time )
     end
 
-    def test_equality
+    def test_standard_equality
       one   = ::Torid::UUID.from( @guid )
       other = ::Torid::UUID.from( @guid )
-      assert_equal( one, other )
+      assert( one == other )
+      assert( other == one )
+    end
+
+    def test_case_equality
+      one   = ::Torid::UUID.from( @guid )
+      other = ::Torid::UUID.from( @guid )
+      assert( one === other )
+      assert( other === one )
+    end
+
+    def test_hash
+      one   = ::Torid::UUID.from( @guid )
+      other = ::Torid::UUID.from( @guid )
+      assert( one.hash == other.hash  )
+    end
+
+    def test_hash_equality
+      one   = ::Torid::UUID.from( @guid )
+      other = ::Torid::UUID.from( @guid )
+      assert( one.eql?(other) )
+      assert( other.eql?(one) )
+    end
+
+    def test_identity_comparison
+      one   = ::Torid::UUID.from( @guid )
+      other = ::Torid::UUID.from( @guid )
+      assert( !one.equal?(other) )
+      assert( !other.equal?(one) )
     end
 
   end

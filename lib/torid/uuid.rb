@@ -163,5 +163,21 @@ module Torid
         other.node_id == self.node_id &&
         other.timestamp == self.timestamp
     end
+    alias :eql? :==
+
+    # Public: Generate the hash of the UUID for ruby hash equality
+    #
+    # This allows two UUID objects that have the same node_id and timestamp to
+    # be considered the same object for keys in Hash.
+    #
+    # Examples
+    #   one   = Torid.uuid
+    #   other = Torid::UUID.from( one.bytes )
+    #   h     = { one => "a value" }
+    #   h.has_key?( other )  # => true
+    def hash
+      [node_id, timestamp, ::Torid::UUID].hash
+    end
+
   end
 end
