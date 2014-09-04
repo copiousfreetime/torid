@@ -150,5 +150,18 @@ module Torid
       elements[-1] = '%02x%02x%02x%02x%02x%02x' % node
       "%08x-%04x-%04x-%02x%02x-%s" % elements
     end
+
+    # Public: Compare the equality of UUID's
+    #
+    # Examples
+    #
+    #   uuid == other_uuid
+    #
+    # Returns true or false
+    def ==(other)
+      other.is_a?(::Torid::UUID) &&
+        other.node_id == self.node_id &&
+        other.timestamp == self.timestamp
+    end
   end
 end

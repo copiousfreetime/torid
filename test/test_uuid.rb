@@ -71,5 +71,11 @@ module Torid
       assert_equal( time, uuid.time )
     end
 
+    def test_equality
+      one   = ::Torid::UUID.from( @guid )
+      other = ::Torid::UUID.from( @guid )
+      assert_equal( one, other )
+    end
+
   end
 end
