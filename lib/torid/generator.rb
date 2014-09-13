@@ -21,27 +21,40 @@ module Torid
     # Internal: The Clock instance used to get 64bit timestamps
     attr_reader :clock
 
-    # Internal: The Node id of this instance
-    attr_reader :node_id
-
     # Internal: Create a new Torid UUID Generator
     #
     # clock   - an object that responds to `#tick` and returns a 64bit integer.
     #           (default: Torid::Clock)
-    # node_id - the 64bit node id of this node. (default: Generator.node_id)
+    # node_id - the 64bit node id of this node. (default: Generator.create_node_id)
     #
-    def initialize( clock = Torid::Clock, node_id = Generator.node_id )
+    def initialize( clock = Torid::Clock, node_id = Generator.create_node_id )
       @clock   = clock
       @node_id = node_id
+      @pid     = Process.pid
     end
 
     # Public: Return the next UUID from this generator
     #
     # Returns Torid::UUID
     def next
-      Torid::UUID.new( @clock.tick, @node_id )
+     Torid::UUID.new( clock.tick, node_id )
     end
 
+    # Public: Return the node id
+    #
+    # This also checks if the node id is still a valid node id, by checking
+    # the pid of the process and the pid of the last time the node id was
+    # generated.
+    #
+    # Returns the node_id
+    def node_id
+      current_pid = Process.pid
+      if current_pid != @pid then
+        @pid     = current_pid
+        @node_id = Generator.create_node_id( @pid )
+      end
+      return @node_id
+    end
 
     # Internal: Generate a unique node identifier.
     #
@@ -55,9 +68,8 @@ module Torid
     # with the random bytes added by me.
     #
     # Returns a 64 bit Integer
-    def self.create_node_id
+    def self.create_node_id( pid = Process.pid )
       hostname = Socket.gethostbyname( Socket.gethostname ).first
-      pid      = Process.pid
       random   = SecureRandom.hex( 16 )
       FNV.new.fnv1a_64("#{hostname}-#{pid}-#{random}")
     end
