@@ -1,4 +1,9 @@
 # Torid Changelog
+## Version 1.2.1 - 2014-09-13
+
+* Fix bug where after a fork you could generate the same uuids in different
+  processes (copiousfreetime/torid#1)
+
 ## Version 1.2.0 - 2014-09-04
 
 * Added equivalence checking
