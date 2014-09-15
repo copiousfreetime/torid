@@ -22,7 +22,7 @@ module Torid
   class UUID
 
     # Regular expression that matches the 36 byte 8-4-4-4-12 format
-    REGEX = %r{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}}i
+    REGEX = %r{(?<uuid>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})}i
 
     # Public: Return if the given string matches the UUID regular expression
     #

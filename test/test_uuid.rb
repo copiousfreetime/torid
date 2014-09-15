@@ -20,6 +20,16 @@ module Torid
       assert( Torid::UUID::REGEX.match( @guid ) )
     end
 
+    def test_uuid_captures
+      md = Torid::UUID::REGEX.match( @guid )
+      assert_equal( @guid, md.captures.first )
+    end
+
+    def test_uuid_named_captures
+      md = Torid::UUID::REGEX.match( @guid )
+      assert_equal(@guid, md[:uuid])
+    end
+
     def test_uuid_no_match
       assert_equal( nil, Torid::UUID::REGEX.match( "foo" ))
     end
