@@ -1,4 +1,8 @@
 # Torid Changelog
+## Version 1.2.2 - 2014-09-13
+
+* And named captures to the uuid regex.
+
 ## Version 1.2.1 - 2014-09-13
 
 * Fix bug where after a fork you could generate the same uuids in different
