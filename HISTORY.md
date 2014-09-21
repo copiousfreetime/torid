@@ -1,4 +1,8 @@
 # Torid Changelog
+## Version 1.2.3 - 2014-09-13
+
+* Use `captures` instead of named captures.
+
 ## Version 1.2.2 - 2014-09-13
 
 * And named captures to the uuid regex.
