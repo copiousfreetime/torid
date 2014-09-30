@@ -29,16 +29,19 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rake>, ["~> 10.1"])
       s.add_development_dependency(%q<minitest>, ["~> 5.0"])
       s.add_development_dependency(%q<rdoc>, ["~> 4.0"])
+      s.add_development_dependency(%q<simplecov>, ["~> 0.9"])
     else
       s.add_dependency(%q<fnv>, ["~> 0.2"])
       s.add_dependency(%q<rake>, ["~> 10.1"])
       s.add_dependency(%q<minitest>, ["~> 5.0"])
       s.add_dependency(%q<rdoc>, ["~> 4.0"])
+      s.add_dependency(%q<simplecov>, ["~> 0.9"])
     end
   else
     s.add_dependency(%q<fnv>, ["~> 0.2"])
     s.add_dependency(%q<rake>, ["~> 10.1"])
     s.add_dependency(%q<minitest>, ["~> 5.0"])
     s.add_dependency(%q<rdoc>, ["~> 4.0"])
+    s.add_dependency(%q<simplecov>, ["~> 0.9"])
   end
 end
