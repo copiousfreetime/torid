@@ -7,5 +7,4 @@ doc
 log
 pkg
 tmp
-Gemfile*
 *.gemspec
