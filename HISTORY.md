@@ -1,4 +1,8 @@
 # Torid Changelog
+## Version 1.2.4 - 2015-02-18
+
+* Fix a failing test case on jruby. Only affected running tests.
+
 ## Version 1.2.3 - 2014-09-13
 
 * Use `captures` instead of named captures.
