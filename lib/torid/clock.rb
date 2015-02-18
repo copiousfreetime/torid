@@ -15,6 +15,10 @@ module Torid
 
     # Internal: Return the current microsecond UNIX timstamp
     #
+    # Since this value is outside of any mutex, it is not valid to comopare it
+    # against any value from 'tick'. This is a utility method for use soley
+    # inside of the Clock instance.
+    #
     # Example:
     #
     #   Clock.stamp => 1404774462369341
@@ -24,6 +28,8 @@ module Torid
       now = Time.now
       (now.to_f * 1_000_000).floor
     end
+
+    attr_reader :prev_stamp
 
     # Internal: Create a new Clock
     #
