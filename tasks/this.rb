@@ -13,7 +13,7 @@ class ThisProject
   attr_accessor :email
 
   # The homepage of this project
-  attr_accessor :homepage 
+  attr_accessor :homepage
 
   # The regex of files to exclude from the manifest
   attr_accessor :exclude_from_manifest
@@ -145,6 +145,8 @@ class ThisProject
       spec.extra_rdoc_files += spec.files.grep(/(txt|rdoc|md)$/)
       spec.rdoc_options = [ "--main"  , 'README.md',
                             "--markup", "tomdoc" ]
+
+      spec.required_ruby_version = '>= 1.9.3'
     end
   end
 
@@ -181,7 +183,7 @@ class ThisProject
     section_of( 'README.md', 'DESCRIPTION')
   end
 
-  # Internal: Return the summary text from the README 
+  # Internal: Return the summary text from the README
   def summary
     description_section.first
   end
