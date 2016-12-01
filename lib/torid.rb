@@ -2,7 +2,7 @@
 # that sort lexically in time order.
 module Torid
   # Public: The Version of the Torid library as a String
-  VERSION = "1.2.4"
+  VERSION = "1.2.5"
 
   # Public: return the next Torid::UUID from the default Generator
   #
