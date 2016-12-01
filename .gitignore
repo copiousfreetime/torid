@@ -8,3 +8,4 @@ log
 pkg
 tmp
 *.lock
+.gem
