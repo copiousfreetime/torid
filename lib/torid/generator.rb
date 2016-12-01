@@ -67,9 +67,13 @@ module Torid
     # https://github.com/jamesgolick/lexical_uuid/blob/master/lib/lexical_uuid.rb#L14
     # with the random bytes added by me.
     #
+    # Settled on using just `Socket.gethostname` because on MacOS Sierra the
+    # hostname is not guaranteed to be round tripable through name resolution
+    # locally on the machine
+    #
     # Returns a 64 bit Integer
     def self.create_node_id( pid = Process.pid )
-      hostname = Socket.gethostbyname( Socket.gethostname ).first
+      hostname = Socket.gethostname
       random   = SecureRandom.hex( 16 )
       FNV.new.fnv1a_64("#{hostname}-#{pid}-#{random}")
     end
