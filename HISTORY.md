@@ -1,4 +1,9 @@
 # Torid Changelog
+## Version 1.3.0 - 2017-02-17
+
+* Add Torid::UUID#node_id_s to allow access to just the node portion
+  of the UUID as a string.
+
 ## Version 1.2.4 - 2015-02-18
 
 * Fix a failing test case on jruby. Only affected running tests.
