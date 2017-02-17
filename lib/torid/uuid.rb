@@ -151,6 +151,16 @@ module Torid
       "%08x-%04x-%04x-%02x%02x-%s" % elements
     end
 
+    # Public: Return the hexidcimal UUID string representation of just the
+    # node_id. This is just the last 2 parts
+    def node_id_s
+      node_bytes = [ @node_id >> 32, @node_id & 0xFFFF_FFFF].pack("NN")
+      elements   = node_bytes.unpack("CCa6")
+      node         = elements[-1].unpack('C*')
+      elements[-1] = '%02x%02x%02x%02x%02x%02x' % node
+      "%02x%02x-%s" % elements
+    end
+
     # Public: Compare the equality of UUID's
     #
     # Examples

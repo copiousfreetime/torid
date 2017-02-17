@@ -10,6 +10,7 @@ module Torid
       @bytes     = [ @timestamp >> 32, @timestamp & 0xFFFF_FFFF,
                      @node_id   >> 32, @node_id   & 0XFFFF_FFFF ].pack("NNNN")
       @guid      = "0004fd7d-f50d-e22e-0000-00000000002a"
+      @node_id_s = "0000-00000000002a"
     end
 
     def test_uuid_regex_matches
@@ -47,6 +48,11 @@ module Torid
     def test_extracts_node_id_from_bytes
       uuid = ::Torid::UUID.from( @bytes)
       assert_equal( @node_id , uuid.node_id )
+    end
+
+    def test_extracts_node_id_as_hex
+      uuid = ::Torid::UUID.from( @bytes)
+      assert_equal( @node_id_s, uuid.node_id_s )
     end
 
     def test_round_trips_uuid_string
