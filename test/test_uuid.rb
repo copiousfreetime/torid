@@ -27,7 +27,7 @@ module Torid
     end
 
     def test_uuid_no_match
-      assert_equal( nil, Torid::UUID::REGEX.match( "foo" ))
+      assert_nil(Torid::UUID::REGEX.match( "foo" ))
     end
 
     def test_uuid_match_case_insensitive
