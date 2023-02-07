@@ -1,5 +1,7 @@
 ## Torid
 
+[![Build Status](https://copiousfreetime.semaphoreci.com/badges/torid/branches/main.svg)](https://copiousfreetime.semaphoreci.com/projects/torid)
+
 * [Homepage](https://github.com/copiousfreetime/torid/)
 * [Github Project](https://github.com/copiousfreetime/torid)
 * email jeremy at copiousfreetime dot org
