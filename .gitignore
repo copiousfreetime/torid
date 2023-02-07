@@ -7,5 +7,5 @@ doc
 log
 pkg
 tmp
-*.lock
-.gem
+.gem/
+vendor/
