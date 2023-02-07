@@ -4,7 +4,6 @@
 
 * [Homepage](https://github.com/copiousfreetime/torid/)
 * [Github Project](https://github.com/copiousfreetime/torid)
-* email jeremy at copiousfreetime dot org
 
 ## DESCRIPTION
 
