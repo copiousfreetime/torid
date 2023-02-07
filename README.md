@@ -11,6 +11,8 @@
 Temporally Ordered IDs. Generate universally unique identifiers (UUID)
 that sort lexically in time order.
 
+## DETAILS
+
 Torid exists to solve the problem of generating UUIDs that when ordered
 lexically, they are also ordered temporally. I needed a way to generate ids for
 events that are entering a system with the following criteria:
