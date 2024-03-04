@@ -7,8 +7,8 @@
 
 ## DESCRIPTION
 
-Temporally Ordered IDs. Generate universally unique identifiers (UUID)
-that sort lexically in time order.
+Temporally Ordered IDs. Generate Universally Unique Lexicographically Sortable
+Identifiers (ULID) and (UUID) that sort lexically in time order.
 
 ## DETAILS
 
@@ -24,10 +24,26 @@ events that are entering a system with the following criteria:
 5. Eventually stored in a UUID field in a database. So 128bit ids are totally
    fine.
 
+Torid generates these id's in 2 different algorithms, you may choose which one
+you want.
+
+### Original algorithm
+
 The IDs that Torid generates are 128bit IDs made up of 2, 64bit parts.
 
 * 64bit microsecond level UNIX timestamp
 * 64bit hash of the system hostname, process id and a random value.
+
+### ULID
+
+[Universally Unique Lexicographically Sortable Identifier](https://github.com/ulid/spec)
+
+These ID's are 128bit ID's that are:
+
+* 128bit combatible with UUID
+* Canonically encoded as 26 character strings
+* Case insensitive
+* URL Safe
 
 ## EXAMPLES
 
@@ -60,8 +76,10 @@ The vast majority of the credit and research stems from:
 * [jondot's](https://github.com/jondot) blog post on [Fast ID Generation](http://blog.paracode.com/2012/04/16/fast-id-generation-part-1/) served to solidify my thoughts on the criteria I needed in an ID generation system. 
 * This let me to [Boundary's Flake](http://boundary.com/blog/2012/01/12/flake-a-decentralized-k-ordered-unique-id-generator-in-erlang/)
 * [James Golick's](https://github.com/jamesgolick) [lexical_uuid](https://github.com/jamesgolick/lexical_uuid), which if I had found a day earlier, I might be using instead of creating this.
+* [ulid specification](https://github.com/ulid/spec)
 
 You could consider Torid to be a reimplementation of [lexical_uuid](https://github.com/jamesgolick/lexical_uuid). It definately steals some code from it and [simple_uuid](https://github.com/cassandra-rb/simple_uuid)
+and an implementation of [ulid](https://github.com/ulid/spec).
 
 Blog posts around ID generation:
 
