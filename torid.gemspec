@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = "torid".freeze
-  s.version = "1.3.0"
+  s.version = "1.3.0".freeze
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.metadata = { "bug_tracker_uri" => "https://github.com/copiousfreetime/torid/issues", "changelog_uri" => "https://github.com/copiousfreetime/torid/blob/master/HISTORY.md", "homepage_uri" => "https://github.com/copiousfreetime/torid", "source_code_uri" => "https://github.com/copiousfreetime/torid" } if s.respond_to? :metadata=
   s.require_paths = ["lib".freeze]
   s.authors = ["Jeremy Hinegardner".freeze]
-  s.date = "2023-02-07"
+  s.date = "2024-03-04"
   s.description = "Temporally Ordered IDs. Generate universally unique identifiers (UUID) that sort lexically in time order.".freeze
   s.email = "jeremy@copiousfreetime.org".freeze
   s.extra_rdoc_files = ["CONTRIBUTING.md".freeze, "HISTORY.md".freeze, "Manifest.txt".freeze, "README.md".freeze]
@@ -20,16 +20,16 @@ Gem::Specification.new do |s|
   s.licenses = ["ISC".freeze]
   s.rdoc_options = ["--main".freeze, "README.md".freeze, "--markup".freeze, "tomdoc".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 2.3.0".freeze)
-  s.rubygems_version = "3.4.6".freeze
+  s.rubygems_version = "3.5.3".freeze
   s.summary = "Temporally Ordered IDs. Generate universally unique identifiers (UUID) that sort lexically in time order.".freeze
 
   s.specification_version = 4
 
-  s.add_runtime_dependency(%q<fnv>.freeze, ["~> 0.2"])
-  s.add_development_dependency(%q<rake>.freeze, ["~> 13.0"])
-  s.add_development_dependency(%q<minitest>.freeze, ["~> 5.17"])
-  s.add_development_dependency(%q<minitest-junit>.freeze, ["~> 1.0"])
-  s.add_development_dependency(%q<minitest-focus>.freeze, ["~> 1.3"])
-  s.add_development_dependency(%q<rdoc>.freeze, ["~> 6.4"])
-  s.add_development_dependency(%q<simplecov>.freeze, ["~> 0.21"])
+  s.add_runtime_dependency(%q<fnv>.freeze, ["~> 0.2".freeze])
+  s.add_development_dependency(%q<rake>.freeze, ["~> 13.0".freeze])
+  s.add_development_dependency(%q<minitest>.freeze, ["~> 5.21".freeze])
+  s.add_development_dependency(%q<minitest-junit>.freeze, ["~> 1.1".freeze])
+  s.add_development_dependency(%q<minitest-focus>.freeze, ["~> 1.3".freeze])
+  s.add_development_dependency(%q<rdoc>.freeze, ["~> 6.6".freeze])
+  s.add_development_dependency(%q<simplecov>.freeze, ["~> 0.21".freeze])
 end
