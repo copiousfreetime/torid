@@ -7,8 +7,6 @@ This.email    = "jeremy@copiousfreetime.org"
 This.homepage = "http://github.com/copiousfreetime/#{ This.name }"
 
 This.ruby_gemspec do |spec|
-  spec.add_dependency( 'fnv', '~> 0.2' )
-
   spec.add_development_dependency( 'rake',           '~> 13.0')
   spec.add_development_dependency( 'minitest',       '~> 5.21' )
   spec.add_development_dependency( 'minitest-junit', '~> 1.1' )
@@ -27,3 +25,4 @@ This.ruby_gemspec do |spec|
 end
 
 load 'tasks/default.rake'
+load 'tasks/custom.rake'

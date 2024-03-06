@@ -18,5 +18,6 @@ module Torid
   end
 end
 require 'torid/clock'
+require 'torid/fnv'
 require 'torid/uuid'
 require 'torid/generator'

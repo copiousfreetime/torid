@@ -2,6 +2,7 @@
 ## Version 1.4.0 - 2024-03-XX
 
 * Add Torid::ULID to implement the [ulid specification](https://github.com/ulid/spec)
+* Remove dependency on very old fnv gem and reimplment fnv algorithm internally
 
 ## Version 1.3.0 - 2017-02-17
 

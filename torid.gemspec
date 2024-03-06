@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
 
   s.specification_version = 4
 
-  s.add_runtime_dependency(%q<fnv>.freeze, ["~> 0.2".freeze])
   s.add_development_dependency(%q<rake>.freeze, ["~> 13.0".freeze])
   s.add_development_dependency(%q<minitest>.freeze, ["~> 5.21".freeze])
   s.add_development_dependency(%q<minitest-junit>.freeze, ["~> 1.1".freeze])
