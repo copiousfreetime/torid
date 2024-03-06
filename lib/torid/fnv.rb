@@ -1,10 +1,17 @@
-# DO NOT EDIT:
+# DO NOT EDIT - THIS IS A GENERATED FILE
 #
 # This file is generated from the original prime configuration of the
 # FNV Algorithm and is generated for runtime performance. See the
-# rake task that generates this file to edit.
+# rake task `generate_fnv` that generates this file.
 #
 module Torid
+  # Public:
+  #
+  # This is an imlementation of the FNV-1 and FNV-1a hash functions
+  #
+  # - https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+  # - http://isthe.com/chongo/tech/comp/fnv/index.html
+  #
   module Fnv
 
     #--------------------------------------------------------------------------
@@ -20,6 +27,7 @@ module Torid
     #
     #   Fnv.fnv1_32(data) => >>32 bit number<<
     #
+    # Returns a 32-bit Integer
     def self.fnv1_32(data)
       hash = N32_BASIS
       data.each_byte do |byte|
@@ -34,6 +42,7 @@ module Torid
     #
     #   Fnv.fnv1a_32(data) => >>32 bit number<<
     #
+    # Returns a 32-bit Integer
     def self.fnv1a_32(data)
       hash = N32_BASIS
       data.each_byte do |byte|
@@ -55,6 +64,7 @@ module Torid
     #
     #   Fnv.fnv1_64(data) => >>64 bit number<<
     #
+    # Returns a 64-bit Integer
     def self.fnv1_64(data)
       hash = N64_BASIS
       data.each_byte do |byte|
@@ -69,6 +79,7 @@ module Torid
     #
     #   Fnv.fnv1a_64(data) => >>64 bit number<<
     #
+    # Returns a 64-bit Integer
     def self.fnv1a_64(data)
       hash = N64_BASIS
       data.each_byte do |byte|
@@ -90,6 +101,7 @@ module Torid
     #
     #   Fnv.fnv1_128(data) => >>128 bit number<<
     #
+    # Returns a 128-bit Integer
     def self.fnv1_128(data)
       hash = N128_BASIS
       data.each_byte do |byte|
@@ -104,6 +116,7 @@ module Torid
     #
     #   Fnv.fnv1a_128(data) => >>128 bit number<<
     #
+    # Returns a 128-bit Integer
     def self.fnv1a_128(data)
       hash = N128_BASIS
       data.each_byte do |byte|
@@ -125,6 +138,7 @@ module Torid
     #
     #   Fnv.fnv1_256(data) => >>256 bit number<<
     #
+    # Returns a 256-bit Integer
     def self.fnv1_256(data)
       hash = N256_BASIS
       data.each_byte do |byte|
@@ -139,6 +153,7 @@ module Torid
     #
     #   Fnv.fnv1a_256(data) => >>256 bit number<<
     #
+    # Returns a 256-bit Integer
     def self.fnv1a_256(data)
       hash = N256_BASIS
       data.each_byte do |byte|
@@ -160,6 +175,7 @@ module Torid
     #
     #   Fnv.fnv1_512(data) => >>512 bit number<<
     #
+    # Returns a 512-bit Integer
     def self.fnv1_512(data)
       hash = N512_BASIS
       data.each_byte do |byte|
@@ -174,6 +190,7 @@ module Torid
     #
     #   Fnv.fnv1a_512(data) => >>512 bit number<<
     #
+    # Returns a 512-bit Integer
     def self.fnv1a_512(data)
       hash = N512_BASIS
       data.each_byte do |byte|
@@ -195,6 +212,7 @@ module Torid
     #
     #   Fnv.fnv1_1024(data) => >>1024 bit number<<
     #
+    # Returns a 1024-bit Integer
     def self.fnv1_1024(data)
       hash = N1024_BASIS
       data.each_byte do |byte|
@@ -209,6 +227,7 @@ module Torid
     #
     #   Fnv.fnv1a_1024(data) => >>1024 bit number<<
     #
+    # Returns a 1024-bit Integer
     def self.fnv1a_1024(data)
       hash = N1024_BASIS
       data.each_byte do |byte|

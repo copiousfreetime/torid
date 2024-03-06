@@ -1,8 +1,11 @@
-# Generate the constants used for the fuctions
+# Generate the FNV implementations
 #
 desc "generate the fnv.rb file used for the FNV functions"
 task :generate_fnv do |t|
   OFFSET_SEED = "chongo <Landon Curt Noll> /\\../\\"
+
+  # http://isthe.com/chongo/tech/comp/fnv/index.html#FNV-param
+  #
   PRIMES = {
     # 32 bit FNV_prime = 2^24 + 2^8 + 0x93
     32 => (1 << 24) + (1 << 8) + 0x93,
@@ -31,17 +34,22 @@ task :generate_fnv do |t|
     hash
   end
 
-
-
   File.open("lib/torid/fnv.rb", "w+") do |f|
     pre = <<~PRE
-    # DO NOT EDIT:
+    # DO NOT EDIT - THIS IS A GENERATED FILE
     #
     # This file is generated from the original prime configuration of the
     # FNV Algorithm and is generated for runtime performance. See the
-    # rake task that generates this file to edit.
+    # rake task `generate_fnv` that generates this file.
     #
     module Torid
+      # Public:
+      #
+      # This is an imlementation of the FNV-1 and FNV-1a hash functions
+      #
+      # - https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+      # - http://isthe.com/chongo/tech/comp/fnv/index.html
+      #
       module Fnv
     PRE
 
@@ -72,6 +80,7 @@ task :generate_fnv do |t|
       #
       #   Fnv.fnv1_#{bits}(data) => >>#{bits} bit number<<
       #
+      # Returns a #{bits}-bit Integer
       def self.fnv1_#{bits}(data)
         hash = #{basis_name}
         data.each_byte do |byte|
@@ -86,6 +95,7 @@ task :generate_fnv do |t|
       #
       #   Fnv.fnv1a_#{bits}(data) => >>#{bits} bit number<<
       #
+      # Returns a #{bits}-bit Integer
       def self.fnv1a_#{bits}(data)
         hash = #{basis_name}
         data.each_byte do |byte|
