@@ -15,7 +15,8 @@ module Torid
     # Precalculate the string to integer mapping for the decoding to account for
     # case insensitivity and confusing characters
     #
-    TO_0 = "0Oo".freeze TO_1 = "1IiLl".freeze
+    TO_0 = "0Oo".freeze
+    TO_1 = "1IiLl".freeze
 
     DECODING = Hash.new.tap do |h|
       ENCODING.chars.each_with_index do |char, value|
