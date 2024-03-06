@@ -63,7 +63,7 @@ module Torid
     #
     # http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
     #
-    # This method is copeid from
+    # This method is copied from
     # https://github.com/jamesgolick/lexical_uuid/blob/master/lib/lexical_uuid.rb#L14
     # with the random bytes added by me.
     #
