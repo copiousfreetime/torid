@@ -1,8 +1,9 @@
 # Torid Changelog
-## Version 1.4.0 - 2024-03-XX
+## Version 2.0.0 - 2024-03-XX
 
-* Add Torid::ULID to implement the [ulid specification](https://github.com/ulid/spec)
+* Refactor entire library to be a UUIDv6, UUIDv7, UUIDv8 implementation.
 * Remove dependency on very old fnv gem and reimplment fnv algorithm internally
+* Implement the crockford base 32 algorithm for alternative display format
 
 ## Version 1.3.0 - 2017-02-17
 
