@@ -17,8 +17,8 @@ module Torid
     Torid::Generator.next
   end
 end
-require 'torid/clock'
-require 'torid/crockford'
-require 'torid/fnv'
-require 'torid/uuid'
-require 'torid/generator'
+require_relative 'torid/clock'
+require_relative 'torid/crockford'
+require_relative 'torid/fnv'
+require_relative 'torid/uuid'
+require_relative 'torid/generator'
