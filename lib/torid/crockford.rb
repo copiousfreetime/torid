@@ -8,6 +8,7 @@ module Torid
   module Crockford
     ENCODING = "0123456789ABCDEFGHJKMNPQRSTVWXYZ".freeze
     DASH = "-".freeze
+    REGEX = %r{([#{DASH}#{ENCODING}]+)}i
 
     BITS_PER_CODE = 5
     BASE_RADIX = (1 << BITS_PER_CODE)

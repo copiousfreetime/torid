@@ -54,6 +54,7 @@ module Torid
       return from_bytes( str )  if str.bytesize == 16
       return from_string( str ) if UUID.match( str )
       raise ArgumentError, "UUID can only be loaded from a 16 byte binary string or a 36 byte formatted UUID string."
+      return from_base32_string( str ) if Crockford::REGEX.match( str )
     end
 
     # Internal: Create a new UUID from an existing string in the 8-4-4-4-12 format
@@ -67,6 +68,17 @@ module Torid
       hex   = str.split('-').join
       bytes = Array( hex ).pack("H32")
       from_bytes( bytes )
+    end
+
+    # Internal: Create a new UUID from an existing string in the Crockford Base32 format
+    #
+    # str - The String from which to create the UUID.
+    #
+    # Returns a Torid::UUID
+    def self.from_base32_string( str )
+      value = Crockford.decode( str )
+      raise ArgumentError, "Crockfor base32 string must decode to a 128bit value" if value >= MAX.value
+      new( value )
     end
 
     # Internal: Create a new UUID from an existing 16 byte String
