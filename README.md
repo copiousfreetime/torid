@@ -73,7 +73,7 @@ uuidv7_generator = Torid::Generator.new
 ulid_generator = Torid::Generator.new(format: :ulid)
 
 # uuidv8 generator that defaults to ulid string format
-ulid_v8_generator  = Torid::Generator.new(format: :ulid, algorithm: :v8)
+ulid_v8_generator = Torid::Generator.new(format: :ulid, algorithm: :v8)
 
 ```
 
@@ -89,10 +89,10 @@ formats:
 
 ## Algorithms
 
-All the new UUID formats that are detailed in [New UUID Formats
+Torid implments all the UUID formats detailed in [New UUID Formats
 RFC](https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format).
 
-The default algorithm used by Torid is the UUIDv7 algorithm.
+The default algorithm for Torid is the UUIDv7 algorithm.
 
 Torid's original custom algorithm is now the UUIDv8 implementation.
 
@@ -184,8 +184,7 @@ Copyright (c) 2014 Jeremy Hinegardner
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
-copyright notice
-and this permission notice appear in all copies.
+copyright notice and this permission notice appear in all copies.
 
 THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
 WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
