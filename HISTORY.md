@@ -1,4 +1,10 @@
 # Torid Changelog
+## Version 2.0.0 - 2024-03-XX
+
+* Refactor entire library to be a UUIDv6, UUIDv7, UUIDv8 implementation.
+* Remove dependency on very old fnv gem and reimplment fnv algorithm internally
+* Implement the crockford base 32 algorithm for alternative display format
+
 ## Version 1.3.0 - 2017-02-17
 
 * Add Torid::UUID#node_id_s to allow access to just the node portion

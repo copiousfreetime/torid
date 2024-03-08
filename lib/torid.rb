@@ -2,7 +2,7 @@
 # that sort lexically in time order.
 module Torid
   # Public: The Version of the Torid library as a String
-  VERSION = "1.3.0"
+  VERSION = "2.0.0"
 
   # Public: return the next Torid::UUID from the default Generator
   #
@@ -17,6 +17,8 @@ module Torid
     Torid::Generator.next
   end
 end
-require 'torid/clock'
-require 'torid/uuid'
-require 'torid/generator'
+require_relative 'torid/clock'
+require_relative 'torid/crockford'
+require_relative 'torid/fnv'
+require_relative 'torid/uuid'
+require_relative 'torid/generator'

@@ -1,8 +1,8 @@
-require 'fnv'
 require 'socket'
 require 'securerandom'
-require 'torid/clock'
-require 'torid/uuid'
+require_relative './fnv'
+require_relative './clock'
+require_relative './uuid'
 
 module Torid
   # Public: A class that will generate unique identifiers.
@@ -63,7 +63,7 @@ module Torid
     #
     # http://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
     #
-    # This method is copeid from
+    # This method is copied from
     # https://github.com/jamesgolick/lexical_uuid/blob/master/lib/lexical_uuid.rb#L14
     # with the random bytes added by me.
     #
@@ -75,7 +75,7 @@ module Torid
     def self.create_node_id( pid = Process.pid )
       hostname = Socket.gethostname
       random   = SecureRandom.hex( 16 )
-      FNV.new.fnv1a_64("#{hostname}-#{pid}-#{random}")
+      Fnv.fnv1a_64("#{hostname}-#{pid}-#{random}")
     end
 
     # Internal: The default generator used by the system.
